@@ -2,8 +2,9 @@
   <h2 class="subheadings">Videos</h2>
   <hr class="dash"/>
 
-  <div class="videos-container">
-    <button class="arrow left" onclick="scrollVideos(-1)">&#10094;</button>
+  <div class="videos-container single-video">
+    <!-- Left arrow is hidden if only one video -->
+    <!-- <button class="arrow left" onclick="scrollVideos(-1)">&#10094;</button> -->
 
     <div class="videos-scroll-wrapper" id="videosRow">
       <iframe class="videos-iframe"
@@ -14,8 +15,9 @@
               allowfullscreen>
       </iframe>
 
+      <!--
       <iframe class="videos-iframe"
-              src="https://www.youtube.com/embed/rCVr8EfuXak"
+              src="https://www.youtube.com/embed/anotherVideoURL"
               title="YouTube video 2"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -23,19 +25,22 @@
       </iframe>
 
       <iframe class="videos-iframe"
-              src="https://www.youtube.com/embed/rCVr8EfuXak"
+              src="https://www.youtube.com/embed/yetAnotherVideoURL"
               title="YouTube video 3"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
       </iframe>
+      -->
     </div>
 
-    <button class="arrow right" onclick="scrollVideos(1)">&#10095;</button>
+    <!-- Right arrow is hidden if only one video -->
+    <!-- <button class="arrow right" onclick="scrollVideos(1)">&#10095;</button> -->
   </div>
-  
-  <a href="{{ url_for('home.homepage') }}">Back to Home</a>
 
+  <div class="back-link-wrapper">
+    <a href="{{ url_for('home.homepage') }}" class="back-home-link">Back to Home</a>
+  </div>
 </section>
 
 <script>
@@ -57,6 +62,17 @@
     border: 2px solid #eee;
   }
 
+  .subheadings {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .dash {
+    width: 60px;
+    margin: 0 auto 30px;
+    border-top: 2px dashed #aaa;
+  }
+
   .videos-container {
     position: relative;
     display: flex;
@@ -72,6 +88,7 @@
     scroll-behavior: smooth;
     padding: 10px 0;
     width: 100%;
+    justify-content: center;
   }
 
   .videos-iframe {
@@ -110,6 +127,23 @@
 
   .arrow.right {
     right: 10px;
+  }
+
+  .back-link-wrapper {
+    margin-top: 40px;
+  }
+
+  .back-home-link {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .back-home-link:hover {
+    color: #005fa3;
+    text-decoration: underline;
   }
 
   @media screen and (max-width: 768px) {

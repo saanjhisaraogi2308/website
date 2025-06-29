@@ -11,9 +11,28 @@
     <h4>Finance-related updates from trusted Indian sources</h4>
 
     <div id="news-container" class="news-section">
-      <!-- News articles will load here -->
-    </div>
-    
+  {% if news_items %}
+    {% for article in news_items %}
+      <div class="news-item">
+        <div class="news-title">
+          <a href="{{ article.url }}" target="_blank" rel="noopener">{{ article.title }}</a>
+        </div>
+        <div class="news-description">{{ article.description or '' }}</div>
+        <div class="news-source">Source: {{ article.source.name }}</div>
+        <div class="news-time">Published: {{ article.publishedAt }}</div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No news available at the moment.</p>
+  {% endif %}
+</div>
+   
+    <div style="text-align: center;">
+  <a href="{{ url_for('home.homepage') }}">Back to Home</a>
+</div>
+
+<br>
+
     {% include 'chatbot.html' %} 
 
   </body>
