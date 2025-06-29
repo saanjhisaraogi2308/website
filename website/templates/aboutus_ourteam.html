@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Our Team</title>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <section id="ourteam" class="team-section section">
     <h2>Our Team</h2>
     <div class="team-container">
 
-      <!-- Manish Saraogi -->
-      <div class="flip-card">
+      <!-- CA Manish Saraogi -->
+      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
         <div class="flip-card-inner">
-          <!-- FRONT: Blue gradient with name & LinkedIn -->
           <div class="flip-card-front">
             <h3>CA Manish Saraogi</h3>
-            <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" class="linkedin-link">
+            <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" class="linkedin-link" onclick="event.stopPropagation()">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
-          <!-- BACK: White with title & details -->
           <div class="flip-card-back">
             <h4>Founder & Principal Partner</h4>
             <p>24+ years of experience in tax, audit & advisory.</p>
@@ -27,12 +27,28 @@
         </div>
       </div>
 
+      <!-- Krish Saraogi -->
+      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Krish Saraogi</h3>
+            <a href="#" class="linkedin-link" onclick="event.stopPropagation()">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+          <div class="flip-card-back">
+            <h4>Strategy & Digital Transformation</h4>
+            <p>Leads innovation, automation & tech-driven finance solutions.</p>
+          </div>
+        </div>
+      </div>
+      
       <!-- Megha Agarwal -->
-      <div class="flip-card">
+      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <h3>CA Megha Agarwal</h3>
-            <a href="#" class="linkedin-link">
+            <a href="#" class="linkedin-link" onclick="event.stopPropagation()">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
@@ -43,28 +59,12 @@
         </div>
       </div>
 
-      <!-- Krish Saraogi -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Krish Saraogi</h3>
-            <a href="#" class="linkedin-link">
-              <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-          </div>
-          <div class="flip-card-back">
-            <h4>Strategy & Digital Transformation</h4>
-            <p>Leads innovation, automation & tech-driven finance solutions.</p>
-          </div>
-        </div>
-      </div>
-
       <!-- Priya Mehta -->
-      <div class="flip-card">
+      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <h3>CA Priya Mehta</h3>
-            <a href="#" class="linkedin-link">
+            <a href="#" class="linkedin-link" onclick="event.stopPropagation()">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
@@ -77,11 +77,25 @@
 
     </div>
   </section>
-
-  <!-- FontAwesome for icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<script>
+  // Delayed flip logic
+  const flipTimers = new WeakMap();
+
+  function startFlip(card) {
+    const timer = setTimeout(() => {
+      card.classList.add('flipped');
+    }, 600); // 600ms delay
+    flipTimers.set(card, timer);
+  }
+
+  function cancelFlip(card) {
+    clearTimeout(flipTimers.get(card));
+    card.classList.remove('flipped');
+  }
+</script>
 
 <style>
   .team-section {
@@ -94,7 +108,7 @@
   .team-section h2 {
     font-size: 2.2rem;
     margin-bottom: 40px;
-    color: #111;
+    color: #002147;
   }
 
   .team-container {
@@ -108,6 +122,7 @@
     width: 280px;
     height: 360px;
     perspective: 1000px;
+    cursor: pointer;
   }
 
   .flip-card-inner {
@@ -118,7 +133,7 @@
     transition: transform 0.8s ease;
   }
 
-  .flip-card:hover .flip-card-inner {
+  .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
   }
 
@@ -138,29 +153,30 @@
     box-sizing: border-box;
   }
 
-  /* FRONT: Blue gradient */
   .flip-card-front {
     background: linear-gradient(135deg, #002147, #003366);
     color: white;
   }
-  .flip-card-front h3 {
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
 
-  /* BACK: White */
   .flip-card-back {
     background: #fff;
     color: #111;
     transform: rotateY(180deg);
     text-align: center;
   }
+
+  .flip-card-front h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
   .flip-card-back h4 {
     margin-bottom: 10px;
     font-size: 1.2rem;
     font-weight: 600;
   }
+
   .flip-card-back p {
     font-size: 1rem;
     line-height: 1.5;
@@ -179,6 +195,7 @@
     border-radius: 6px;
     transition: background 0.3s;
   }
+
   .linkedin-link:hover {
     background: rgba(255,255,255,0.35);
   }
@@ -188,6 +205,10 @@
       flex-direction: column;
       align-items: center;
     }
-    .flip-card { width: 90%; height: 320px; }
+
+    .flip-card {
+      width: 90%;
+      height: 320px;
+    }
   }
 </style>

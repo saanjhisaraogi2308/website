@@ -2,12 +2,12 @@
   <h2 class="subheadings">Testimonials</h2>
   <hr class="dash" />
   <div class="carousel-wrapper">
-    <button class="arrow left-arrow" onclick="scrollTestimonials(-1)">&#10094;</button>
+    <button class="arrow left-arrow" id="leftArrow" onclick="scrollTestimonials(-1)">&#10094;</button>
 
-    <div class="testimonials-carousel" id="testimonialCarousel">
+    <div class="testimonials-carousel" id="testimonialCarousel" onscroll="handleArrowVisibility()">
       <!-- Testimonial 1 -->
       <div class="testimonial-card">
-        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <div class="stars">★★★★★</div>
         <p>Manish Saraogi & Associates has been instrumental in streamlining our tax filing and financial planning. Their knowledge of Indian compliance standards is unmatched.</p>
         <div class="testimonial-footer">
           <strong>Aarav Mehta, CFO</strong><br />
@@ -17,7 +17,7 @@
 
       <!-- Testimonial 2 -->
       <div class="testimonial-card">
-        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <div class="stars">★★★★★</div>
         <p>We’ve been working with them since 2015. Their proactive advisory and audit support helped us during our expansion into Tier-2 markets.</p>
         <div class="testimonial-footer">
           <strong>Sunita Rao, Director - Finance</strong><br />
@@ -27,7 +27,7 @@
 
       <!-- Testimonial 3 -->
       <div class="testimonial-card">
-        <div class="stars" aria-label="4 and a half star rating">
+        <div class="stars" aria-label="4.5 stars">
           <span class="star">&#9733;</span>
           <span class="star">&#9733;</span>
           <span class="star">&#9733;</span>
@@ -43,53 +43,39 @@
 
       <!-- Testimonial 4 -->
       <div class="testimonial-card">
-        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <div class="stars">★★★★★</div>
         <p>Accurate, dependable, and always available. Their consultancy helped us save significantly through strategic tax planning.</p>
         <div class="testimonial-footer">
           <strong>Divya Nair, Partner</strong><br />
           Nair & Co. Interiors, Kochi
         </div>
       </div>
-
-      <!-- Testimonial 5 -->
-      <div class="testimonial-card">
-        <div class="stars" aria-label="4 and a half star rating">
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-          <span class="star half-star">&#9733;</span>
-        </div>
-        <p>We’ve experienced a smooth partnership thanks to their responsive service and reliable compliance reporting under Indian tax laws.</p>
-        <div class="testimonial-footer">
-          <strong>Rohit Sinha, CEO</strong><br />
-          LogiZen India Pvt Ltd, Mumbai
-        </div>
-      </div>
-
-      <!-- Testimonial 6 -->
-      <div class="testimonial-card">
-        <div class="stars" aria-label="5 star rating">★★★★★</div>
-        <p>Our go-to CA firm for audits and regulatory filings. They’ve never let us down in over 7 years of partnership.</p>
-        <div class="testimonial-footer">
-          <strong>Pallavi Sharma, Founder</strong><br />
-          ThinkSpark EdTech, New Delhi
-        </div>
-      </div>
     </div>
 
-    <button class="arrow right-arrow" onclick="scrollTestimonials(1)">&#10095;</button>
+    <button class="arrow right-arrow" id="rightArrow" onclick="scrollTestimonials(1)">&#10095;</button>
   </div>
 </section>
 
-
 <script>
+  const container = document.getElementById("testimonialCarousel");
+  const leftArrow = document.getElementById("leftArrow");
+  const rightArrow = document.getElementById("rightArrow");
+
   function scrollTestimonials(direction) {
-    const container = document.getElementById("testimonialCarousel");
     const card = container.querySelector(".testimonial-card");
     const cardWidth = card.offsetWidth;
     container.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+    setTimeout(handleArrowVisibility, 400);
   }
+
+  function handleArrowVisibility() {
+    leftArrow.style.display = container.scrollLeft > 0 ? "block" : "none";
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    rightArrow.style.display = container.scrollLeft < maxScrollLeft - 5 ? "block" : "none";
+  }
+
+  // Initial call
+  window.addEventListener('load', handleArrowVisibility);
 </script>
 
 <style>
@@ -126,6 +112,8 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    gap: 30px;
+    padding-bottom: 10px;
   }
 
   .testimonial-card {
@@ -147,24 +135,18 @@
     display: inline-flex;
   }
 
-  .stars span.star {
-    position: relative;
-    display: inline-block;
-  }
-
-  .half-star {
+  .stars .half-star {
     position: relative;
     color: #ccc;
   }
 
-  .half-star::before {
+  .stars .half-star::before {
     content: "\2605";
     position: absolute;
     left: 0;
     width: 50%;
     overflow: hidden;
     color: #fbc02d;
-    z-index: 1;
   }
 
   .testimonial-card p {
@@ -187,9 +169,11 @@
     color: #333;
     position: absolute;
     top: 45%;
+    transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
     user-select: none;
+    display: none; /* default hidden, shown by JS */
   }
 
   .left-arrow {
@@ -207,6 +191,10 @@
   @media (max-width: 768px) {
     .testimonial-card {
       flex: 0 0 100%;
+    }
+
+    .arrow {
+      font-size: 2rem;
     }
 
     .left-arrow {

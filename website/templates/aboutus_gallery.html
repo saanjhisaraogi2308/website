@@ -16,7 +16,6 @@
   </div>
 </section>
 
-
 <script>
   function scrollGallery(direction) {
     const row = document.getElementById("galleryRow");
@@ -26,15 +25,30 @@
       behavior: 'smooth'
     });
   }
-</script>
 
+  // Ensure scroll to #gallery works on load
+  window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    if (hash === "#gallery") {
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }, 300); // Delay to ensure content is fully rendered
+      }
+    }
+  });
+</script>
 
 <style>
   .gallery-section {
     text-align: center;
     padding: 60px 20px;
     background-color: #ffffff;
-    border: 2px solid #eee;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    min-height: 400px;
+    scroll-margin-top: 100px; /* Offset for fixed nav */
   }
 
   .gallery-container {
@@ -42,6 +56,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
   }
 
   .gallery-row {
@@ -51,6 +66,7 @@
     gap: 20px;
     padding-bottom: 10px;
     scroll-behavior: smooth;
+    max-width: 100%;
   }
 
   .gallery-image {
@@ -77,6 +93,8 @@
     border-radius: 50%;
     position: absolute;
     z-index: 1;
+    top: 40%;
+    transform: translateY(-50%);
     transition: background-color 0.3s ease;
   }
 
@@ -104,6 +122,15 @@
   .gallery-row::-webkit-scrollbar-track {
     background-color: #f0f0f0;
   }
+
+  @media screen and (max-width: 768px) {
+    .gallery-image {
+      width: 90%;
+    }
+
+    .arrow {
+      font-size: 24px;
+      padding: 10px;
+    }
+  }
 </style>
-
-
