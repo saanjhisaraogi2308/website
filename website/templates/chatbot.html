@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chatbot</title>
-</head>
-<body>
+<!-- Chatbot Icon -->
+<img id="chatbot-icon" src="{{ url_for('static', filename='images/chatbot.jpg') }}" alt="Chat with us" title="Chat with us" onclick="toggleChatbot()" />
 
-<!-- Assistant Icon -->
-<img id="chatbot-icon" src="static/images/chatbot.jpg" alt="Assistant" onclick="toggleChatbot()" />
-
-<!-- Chatbot Container -->
+<!-- Chatbot Box -->
 <div id="chatbot-container" class="hidden">
   <div id="chatbot-header">
     💬 Chat With Us
@@ -23,128 +14,36 @@
   </div>
 </div>
 
-<script>
-  const messages = document.getElementById('messages');
-  const input = document.getElementById('user-input');
-  const container = document.getElementById('chatbot-container');
-  let step = 0;
-
-  function toggleChatbot() {
-    container.classList.toggle('hidden');
-    if (!container.classList.contains('hidden') && step === 0) {
-      fetch('/chatbot/message', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: '' })
-      })
-      .then(res => res.json())
-      .then(data => {
-        appendMessage('bot', data.reply);
-      });
-    }
-  }
-
-  function handleKeyPress(event) {
-    if (event.key === "Enter") sendMessage();
-  }
-
-  function sendMessage() {
-    const msg = input.value.trim();
-    if (!msg) return;
-
-    if (!validateInput(step, msg)) {
-      appendMessage('bot', getValidationMessage(step));
-      return;
-    }
-
-    appendMessage('user', msg);
-    input.value = '';
-    input.disabled = true;
-
-    fetch('/chatbot/message', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: msg })
-    })
-    .then(res => res.json())
-    .then(data => {
-      appendMessage('bot', data.reply);
-      if (data.finished) {
-        input.disabled = true;
-        setTimeout(() => {
-          toggleChatbot();
-          messages.innerHTML = '';
-          input.disabled = false;
-          step = 0;
-        }, 3000);
-      } else {
-        input.disabled = false;
-        input.focus();
-        step++;
-      }
-    });
-  }
-
-  function validateInput(step, value) {
-    if (step === 0) return /^[A-Za-z ]{3,}$/.test(value); // Name
-    if (step === 1) return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); // Email
-    if (step === 2) return /^\d{10}$/.test(value); // Contact
-    return value.length >= 3; // Question
-  }
-
-  function getValidationMessage(step) {
-    if (step === 0) return "⚠️ Please enter your name";
-    if (step === 1) return "⚠️ Please enter your email address.";
-    if (step === 2) return "⚠️ Please enter your contact number.";
-    return "⚠️ Please describe your question.";
-  }
-
-  function appendMessage(sender, text) {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = sender === 'bot' ? 'bot-msg' : 'user-msg';
-    msgDiv.textContent = text;
-    messages.appendChild(msgDiv);
-    messages.scrollTop = messages.scrollHeight;
-  }
-</script>
-
+<!-- Style -->
 <style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    background: #f4f4f4;
-  }
-
   #chatbot-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 100px; /* shifted from 20px to 100px */
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-#chatbot-container {
-  position: fixed;
-  bottom: 100px;
-  right: 100px; /* shifted from 20px to 100px */
-  width: 350px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  border: 1px solid #ddd;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-  .hidden {
-    display: none !important;
+    position: fixed;
+    bottom: 20px;
+    right: 90px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
   }
+
+  #chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 90px;
+    width: 350px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 1px solid #ddd;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+  }
+
+  .hidden { display: none !important; }
 
   #chatbot-header {
     font-weight: 600;
@@ -162,10 +61,6 @@
     font-size: 22px;
     color: #888;
     cursor: pointer;
-  }
-
-  #chatbot-close:hover {
-    color: #000;
   }
 
   #messages {
@@ -215,7 +110,7 @@
     border: 1px solid #ccc;
   }
 
-  button {
+  #chat-input button {
     padding: 10px 14px;
     font-size: 14px;
     border-radius: 10px;
@@ -225,9 +120,100 @@
     cursor: pointer;
   }
 
-  button:hover {
+  #chat-input button:hover {
     background-color: #000;
   }
 </style>
-</body>
-</html>
+
+<!-- Script -->
+<script>
+  let step = 0;
+
+  function toggleChatbot() {
+    const container = document.getElementById('chatbot-container');
+    const messages = document.getElementById('messages');
+    container.classList.toggle('hidden');
+
+    if (!container.classList.contains('hidden') && step === 0) {
+      fetch('/chatbot/message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: '' })
+      })
+      .then(res => res.json())
+      .then(data => {
+        appendMessage('bot', data.reply);
+      })
+      .catch(err => {
+        console.error("Chatbot init error:", err);
+        appendMessage('bot', "⚠️ Chatbot unavailable.");
+      });
+    }
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") sendMessage();
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('user-input');
+    const messages = document.getElementById('messages');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    if (!validateInput(step, msg)) {
+      appendMessage('bot', getValidationMessage(step));
+      return;
+    }
+
+    appendMessage('user', msg);
+    input.value = '';
+    input.disabled = true;
+
+    fetch('/chatbot/message', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    })
+    .then(res => res.json())
+    .then(data => {
+      appendMessage('bot', data.reply);
+      if (data.finished) {
+        input.disabled = true;
+        setTimeout(() => {
+          toggleChatbot();
+          messages.innerHTML = '';
+          input.disabled = false;
+          step = 0;
+        }, 3000);
+      } else {
+        input.disabled = false;
+        input.focus();
+        step++;
+      }
+    });
+  }
+
+  function appendMessage(sender, text) {
+    const messages = document.getElementById('messages');
+    const msgDiv = document.createElement('div');
+    msgDiv.className = sender === 'bot' ? 'bot-msg' : 'user-msg';
+    msgDiv.textContent = text;
+    messages.appendChild(msgDiv);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function validateInput(step, value) {
+    if (step === 0) return /^[A-Za-z ]{3,}$/.test(value); // Name
+    if (step === 1) return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); // Email
+    if (step === 2) return /^\d{10}$/.test(value); // Contact
+    return value.length >= 3;
+  }
+
+  function getValidationMessage(step) {
+    if (step === 0) return "⚠️ Please enter your name.";
+    if (step === 1) return "⚠️ Please enter a valid email address.";
+    if (step === 2) return "⚠️ Please enter a 10-digit contact number.";
+    return "⚠️ Please describe your question.";
+  }
+</script>

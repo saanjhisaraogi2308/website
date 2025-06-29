@@ -49,7 +49,7 @@ def validate_input(step, value):
 
 def validation_message(step):
     if step == 0:
-        return "⚠️ Please enter a valid name (only letters, min 3 characters)."
+        return "⚠️ Please enter a valid name."
     elif step == 1:
         return "⚠️ Please enter a valid email address."
     elif step == 2:
