@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Disclaimer</h1>
+      <p>
+      The information provided on this website is for general informational purposes only. While we strive to ensure that the content is accurate and up to date, <strong>Manish Saraogi & Associates</strong> makes no guarantees or representations of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information contained herein.
+    </p>
+
+    <p>
+      The use of any content or materials on this site is at your own risk. The information should not be considered as professional advice or a substitute for consultation with a qualified Chartered Accountant or legal advisor. Visitors are encouraged to seek specific professional advice tailored to their unique circumstances.
+    </p>
+
+    <p>
+      Under no circumstances shall the firm or its partners be liable for any loss or damage including, without limitation, indirect or consequential loss, or any loss or damage arising from the use of this website or reliance on its contents.
+    </p>
+
+    <p>
+      Any third-party links provided are for convenience only. We do not endorse the content of those websites and are not responsible for their accuracy, reliability, or availability.
+    </p>
+
+    <p>
+      By using this website, you agree to the terms of this disclaimer and the terms and conditions provided elsewhere on the site.
+    </p>
+
+      <a href="{{ url_for('home.homepage') }}">Back to Home</a>
+    </div>
+  </body>
+
+  <footer>
+    {% include 'footer.html' %}
+    {% include 'change_language.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </footer>
+
+</html>

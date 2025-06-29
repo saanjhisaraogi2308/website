@@ -1,0 +1,27 @@
+<div id="enquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <!-- Success popup (initially hidden) -->
+    <div id="modalSuccessPopup" class="success-popup">
+      <img src="{{ url_for('static', filename='images/enquirysend.jpg') }}" alt="Success" class="success-image">
+      <p class="success-message">Submitted Successfully!</p>
+      <button id="continueBtn" class="continue-button">Continue</button>
+    </div>
+
+    <!-- Form -->
+    <form id="enquiryForm" action="{{ url_for('contact.submit_enquiry') }}" method="POST">
+      <h2>Send Enquiry</h2>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="tel" name="mobile" placeholder="Mobile Number" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" maxlength="1000" placeholder="Message"></textarea>
+      <!-- Category hidden input -->
+      <input type="hidden" id="categoryInput" name="category" value="">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='modal.js') }}"></script>
+

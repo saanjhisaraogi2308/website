@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% include 'header.html' %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us</title>
+    </head>
+
+    <body>
+        {% block content %}
+        {% include 'aboutus_ourfounder.html' %}
+        {% include 'aboutus_ourteam.html' %}
+        {% include 'aboutus_awardsrecognitions.html' %}
+        {% include 'aboutus_milestones.html' %}
+        {% include 'aboutus_certifications.html' %}
+        {% include 'aboutus_gallery.html' %}
+        {% include 'aboutus_videos.html' %}
+        {% endblock %}
+
+        {% include 'chatbot.html' %} 
+
+    </body>
+
+    <footer>
+        {% include 'footer.html' %}
+        {% include 'floating_buttons.html' %}
+        {% include 'change_language.html' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </footer>
+
+</html>
+
+

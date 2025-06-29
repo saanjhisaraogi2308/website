@@ -1,0 +1,100 @@
+<html lang="en">
+  <head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bulletin</title>
+  </head>
+
+  <body>
+    <h2>Bulletin</h2>
+    <h4>Key announcements, updates and insights</h4>
+
+    <div class="news-container">
+      {% for item in news %}
+      <div class="news-item">
+        <div class="news-title">{{ item.title }}</div>
+        <div class="news-summary">{{ item.summary }}</div>
+        {% if item.date %}
+        <div class="news-date">Published on: {{ item.date.strftime('%B %d, %Y') }}</div>
+        {% endif %}
+        <div class="news-link"><a href="{{ item.link }}" target="_blank">Read more</a></div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% include 'chatbot.html' %} 
+    
+  </body>
+
+  <footer>
+    {% include 'footer.html' %}
+    {% include 'floating_buttons.html' %}
+    {% include 'change_language.html' %}
+  </footer>
+</html>
+
+<script>
+  // Optional JavaScript here
+</script>
+
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  h4 {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #666;
+  }
+
+  .news-container {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+  }
+
+  .news-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .news-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .news-summary {
+    margin: 8px 0;
+    color: #444;
+  }
+
+  .news-date {
+    font-size: 13px;
+    color: #888;
+  }
+
+  .news-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .news-link a:hover {
+    text-decoration: underline;
+  }
+</style>

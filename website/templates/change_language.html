@@ -1,0 +1,85 @@
+<div class="language-bar">
+  <strong>CHANGE LANGUAGE :</strong>
+  <a href="?googtrans=/en/en" class="lightgray">English</a>
+  <a href="?googtrans=/en/hi">हिंदी</a>
+  <a href="?googtrans=/en/mr">मराठी</a>
+  <a href="?googtrans=/en/bn">বাংলা</a>
+  <a href="?googtrans=/en/ta">தமிழ்</a>
+  <a href="?googtrans=/en/gu">ગુજરાતી</a>
+  <a href="?googtrans=/en/kn">ಕನ್ನಡ</a>
+  <a href="?googtrans=/en/ml">മലയാളം</a>
+  <a href="?googtrans=/en/te">తెలుగు</a>
+  <a href="?googtrans=/en/pa">ਪੰਜਾਬੀ</a>
+</div>
+
+<!-- Hidden Google Translate widget -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+  // Initialize Google Translate widget
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,mr,bn,ta,gu,kn,ml,te,pa',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+  // Read cookie helper
+  function getCookie(name) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+
+  // Set cookie helper
+  function setCookie(name, value) {
+    document.cookie = name + "=" + value + ";path=/";
+  }
+
+  (function() {
+    // Check URL param ?googtrans=...
+    const params = new URLSearchParams(window.location.search);
+    const gtParam = params.get('googtrans');
+
+    if (gtParam) {
+      const current = getCookie('googtrans');
+      if (current !== gtParam) {
+        setCookie('googtrans', gtParam);
+        // Reload without the googtrans param to avoid infinite reload loop
+        params.delete('googtrans');
+        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        window.location.replace(newUrl);
+      }
+    }
+  })();
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  .language-bar {
+    background-color: #37475a;
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+  .language-bar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+  }
+  .language-bar a:first-of-type {
+    margin-left: 10px; /* optional, first link also spaced */
+  }
+  .language-bar a.lightgray {
+    color: lightgray;
+  }
+  .language-bar a:hover {
+    color: #ddd;
+  }
+</style>

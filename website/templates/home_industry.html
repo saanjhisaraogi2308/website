@@ -1,0 +1,134 @@
+<section id=industry class="industry-stats-section">
+  <h2 class="subheadings">INDUSTRY SPECIALIZATION</h2>
+  <hr class="dash"/>
+  <div class="industry-grid">
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/real-estate.png" alt="Real Estate" />
+      <div class="industry-label">Real Estate</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/IT.png" alt="Information Technology" />
+      <div class="industry-label">Information Technology</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/steel.png" alt="Iron & Steel" />
+      <div class="industry-label">Iron & Steel</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/logistics.png" alt="Logistics" />
+      <div class="industry-label">Logistics</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Construction.png" alt="Construction" />
+      <div class="industry-label">Construction</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Retail.png" alt="Retail" />
+      <div class="industry-label">Retail</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Food.png" alt="Food Industry" />
+      <div class="industry-label">Food Industry</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Event.png" alt="Event Industry" />
+      <div class="industry-label">Event Industry</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Manufaturing.png" alt="Manufacturing" />
+      <div class="industry-label">Manufacturing</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Manufaturing.png" alt="Manufacturing" />
+      <div class="industry-label">Hotel & Restaurant</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Manufaturing.png" alt="Manufacturing" />
+      <div class="industry-label">Education</div>
+    </div>
+
+    <div class="industry-card">
+      <img class="industry-icon" src="static/images/industry/Manufaturing.png" alt="Manufacturing" />
+      <div class="industry-label">Stock Trading</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<style>
+  .industry-stats-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid #eee;
+  }
+  .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .industry-card {
+      background-color: #f2f7fc;
+      border-radius: 8px;
+      padding: 20px 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .industry-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .industry-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-width: 0 40px 40px 0;
+      border-style: solid;
+      border-color: white transparent transparent transparent;
+      border-radius: 0 0 0 8px;
+    }
+
+    .industry-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .industry-label {
+      font-size: 1.1rem;
+      color: #111;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .industry-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .industry-card::after {
+        display: none;
+      }
+    }
+  </style>

@@ -1,0 +1,111 @@
+<section id="certifications" class="certifications-section">
+  <h2 class="subheadings">Certifications</h2>
+  <hr class="dash" />
+
+  <div class="certifications-container">
+    <button class="arrow left" onclick="scrollCerts(-1)">&#10094;</button>
+
+    <div class="certificates-scroll-wrapper" id="certificatesRow">
+      <div class="certificates-logos">
+        <img src="static/images/Certifications/Certificate.jpg" alt="ICAI Certificate" class="certificate-logo">
+        <img src="static/images/Certifications/Certificate.jpg" alt="GST Certification" class="certificate-logo">
+        <img src="static/images/Certifications/Certificate.jpg" alt="Income Tax Certification" class="certificate-logo">
+        <img src="static/images/Certifications/Certificate.jpg" alt="Income Tax Certification" class="certificate-logo">
+        <img src="static/images/Certifications/Certificate.jpg" alt="Income Tax Certification" class="certificate-logo">
+        <img src="static/images/Certifications/Certificate.jpg" alt="Income Tax Certification" class="certificate-logo">
+        <!-- Add more images similarly -->
+      </div>
+    </div>
+
+    <button class="arrow right" onclick="scrollCerts(1)">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  function scrollCerts(direction) {
+    const row = document.getElementById("certificatesRow");
+    const scrollAmount = 340;
+    row.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+<style>
+  .certifications-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border: 2px solid #eee;
+  }
+
+  .certifications-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .certificates-scroll-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 10px;
+    scroll-behavior: smooth;
+    width: 100%;
+  }
+
+  .certificates-logos {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .certificate-logo {
+    max-width: 300px;
+    max-height: 220px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .certificate-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .certificate-logo {
+      width: 90%;
+      max-width: none;
+      height: auto;
+    }
+  }
+</style>

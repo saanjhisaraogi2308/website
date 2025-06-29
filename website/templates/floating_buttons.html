@@ -1,0 +1,65 @@
+<div id="floating-contact" class="floating-contact-grid">
+  <a href="https://wa.me/9832036953" target="_blank" title="WhatsApp">
+    <i class="fab fa-whatsapp fa-2x"></i>
+  </a>
+
+  <button id="scrollToTopBtn" onclick="scrollToTop()" title="Scroll to Top">
+    <i class="fa fa-arrow-up fa-2x"></i>
+  </button>
+</div>
+
+<script>
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      scrollToTopBtn.style.display = "flex";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Initially hide the button if already at the top
+  if (window.scrollY <= 100) {
+    scrollToTopBtn.style.display = "none";
+  }
+</script>
+
+<style>
+  .floating-contact-grid {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: grid;
+    grid-auto-flow: row; /* Stack vertically */
+    grid-gap: 10px;
+    z-index: 10000;
+  }
+
+  .floating-contact-grid a,
+  .floating-contact-grid button {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #435d76;
+    background: white;
+    color: #435d76;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    text-decoration: none;
+  }
+
+  .floating-contact-grid a:hover,
+  .floating-contact-grid button:hover {
+    background-color: #2d4050;
+    color: white;
+  }
+</style>

@@ -1,0 +1,115 @@
+<section id="awards" class="awards-section">
+  <h2 class="subheadings">Awards & Recognitions</h2>
+  <hr class="dash"/>
+
+  <div class="awards-container">
+    <button class="arrow left" onclick="scrollAwards(-1)">&#10094;</button>
+
+    <div class="awards-scroll-wrapper" id="awardsRow">
+      <div class="awards-grid">
+        <img src="static/images/awards and honors.jpg" alt="Award 1" class="award-logo">
+        <img src="static/images/awards and honors.jpg" alt="Award 2" class="award-logo">
+        <img src="static/images/awards and honors.jpg" alt="Award 3" class="award-logo">
+        <img src="static/images/awards and honors.jpg" alt="Award 4" class="award-logo">
+        <img src="static/images/awards and honors.jpg" alt="Award 5" class="award-logo">
+        <img src="static/images/awards and honors.jpg" alt="Award 6" class="award-logo">
+        <!-- Add more awards as needed -->
+      </div>
+    </div>
+
+    <button class="arrow right" onclick="scrollAwards(1)">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  function scrollAwards(direction) {
+    const row = document.getElementById("awardsRow");
+    const scrollAmount = 340;
+    row.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+<style>
+  .awards-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border: 2px solid #eee;
+  }
+
+  .awards-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .awards-scroll-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 10px;
+    scroll-behavior: smooth;
+    width: 100%;
+  }
+
+  .awards-grid {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .award-logo {
+    max-width: 300px;
+    max-height: 220px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .award-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .award-logo {
+      width: 90%;
+      max-width: none;
+      height: auto;
+    }
+
+    .awards-grid {
+      gap: 10px;
+    }
+  }
+</style>

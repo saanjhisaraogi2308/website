@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Terms and Conditions</h1>
+      <p>
+      Welcome to the official website of <strong>Manish Saraogi & Associates</strong>. By accessing this website or engaging with our services, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree with any part of these terms, please do not use our website or services.
+    </p>
+
+    <h4>1. Professional Services Disclaimer</h4>
+    <p>
+      All information provided on this website is for general informational purposes only. It should not be construed as professional advice or a substitute for consultation with a qualified Chartered Accountant. We do not accept responsibility for decisions made based on content available on this site.
+    </p>
+
+    <h4>2. Use of Website</h4>
+    <ul>
+      <li>You agree to use this website lawfully and ethically.</li>
+      <li>You shall not use this website to post or transmit any material that is unlawful, abusive, defamatory, or harmful.</li>
+      <li>You may not reproduce, distribute, or commercially exploit any content without our written consent.</li>
+    </ul>
+
+    <h4>3. Engagement Terms</h4>
+    <p>
+      Engagements are subject to separate written agreements. Fees, timelines, confidentiality, and scope of services will be governed by the terms agreed upon in the engagement letter or client agreement.
+    </p>
+
+    <h4>4. Intellectual Property</h4>
+    <p>
+      All logos, branding, and content (text, images, design) are the intellectual property of Manish Saraogi & Associates unless otherwise noted. Unauthorized use is strictly prohibited.
+    </p>
+
+    <h4>5. Limitation of Liability</h4>
+    <p>
+      While we strive for accuracy, we do not guarantee the completeness or reliability of information presented. Under no circumstances shall we be liable for any loss or damage resulting from the use of this website or our services.
+    </p>
+
+    <h4>6. Changes to Terms</h4>
+    <p>
+      We reserve the right to update or change these terms at any time without prior notice. Continued use of the website after changes indicates your acceptance of those updates.
+    </p>
+
+    <h4>7. Governing Law</h4>
+    <p>
+      These Terms and Conditions are governed by the laws of India. Any disputes shall be subject to the jurisdiction of courts in Siliguri, West Bengal.
+    </p>
+
+    <h4>8. Contact Us</h4>
+    <p>
+      For any questions about these Terms, please contact us at <a href="tel:9832036953">9832036953</a> or email us at <a href="mailto:man_saraogi@yahoo.co.in">man_saraogi@yahoo.co.in</a>.
+    </p>
+
+      <a href="{{ url_for('home.homepage') }}">Back to Home</a>
+    </div>
+
+  </body>
+
+  <footer>
+    {% include 'footer.html' %}
+    {% include 'change_language.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </footer>
+
+</html>
+
+<style>
+  .key-stats-section {
+  background-color: #03113c;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.stats-heading small {
+  font-size: 14px;
+  color: #c0c0ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stats-heading h2 {
+  font-size: 2.5rem;
+  margin: 10px 0 5px;
+  font-weight: 700;
+}
+
+.stats-heading hr {
+  width: 80px;
+  height: 2px;
+  background-color: #7d73e8;
+  border: none;
+  margin: 10px auto 30px;
+}
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stat-card {
+  border: 1px solid #5c5f87;
+  padding: 30px 20px;
+  min-width: 150px;
+  max-width: 180px;
+  background-color: #03113c;
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.stat-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: #9c8eff;
+  text-transform: uppercase;
+}
+
+
+</style>

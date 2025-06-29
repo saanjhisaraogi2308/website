@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <title>FAQ</title>
+  </head>
+
+  <body>
+    <!-- <img src="38d1c5ad-74fd-4d08-9643-a5780de16f7d.png" alt="Nurse pointing at FAQ"/> -->
+<div class="faq-container">
+  <h2 class="subheadings">FAQ</h2>
+  <hr class="dash"/>
+  <h2 class="faq-subtitle">You Can Find All Answers Here</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">🏢</div>
+      <span>What is Manish Saraogi & Associates?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      We are a Chartered Accountancy firm established in 2001 in Siliguri, West Bengal, offering audit, taxation, advisory, and compliance services to individuals and businesses.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">📑</div>
+      <span>What services do you provide?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      We offer Income Tax filing, GST compliance, statutory audits, business advisory, company incorporation, TDS returns, and financial planning.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">🕒</div>
+      <span>What are your working hours?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Our office is open Monday to Saturday, 10:00 AM to 6:00 PM. We are closed on Sundays and public holidays.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">📍</div>
+      <span>Where is your office located?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      We are based in Siliguri, West Bengal, India. You can find our exact location on the Contact Us section of the website.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">📤</div>
+      <span>How can I schedule a consultation?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      You can schedule a consultation by calling us directly, visiting our office, or filling out the contact form on our website.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">👨‍⚖️</div>
+      <span>Who is CA Manish Saraogi?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      CA Manish Saraogi is the founder of the firm. He is a fellow member of ICAI with over 23 years of experience in auditing, taxation, and financial consulting.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">🔐</div>
+      <span>Is my financial data secure with you?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Absolutely. We adhere to strict confidentiality and data protection protocols to ensure your personal and financial information remains secure.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">💼</div>
+      <span>Do you assist with business registration and compliance?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Yes, we help startups and businesses with company registration, GST registration, ROC filings, and ongoing regulatory compliance.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">📅</div>
+      <span>Do you handle annual audit and filing deadlines?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Yes, we assist clients in preparing and filing returns on time, ensuring timely compliance with audit, tax, and regulatory requirements.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      <div class="faq-icon">💳</div>
+      <span>What are your fees?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Our fees depend on the nature and scope of the services required. You can contact us directly for a personalized quote.
+    </div>
+  </div>
+  <a href="{{ url_for('home.homepage') }}">Back to Home</a>
+</div>
+
+{% include 'chatbot.html' %} 
+
+  </body>
+
+  <footer>
+    {% include 'footer.html' %}
+    {% include 'floating_buttons.html' %}
+    {% include 'change_language.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </footer>
+</html>
+
+<script>
+  function toggleFAQ(clickedElement) {
+    const allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(item => {
+      const toggleIcon = item.querySelector('.faq-toggle');
+      if (item.contains(clickedElement)) {
+        const isOpen = item.classList.contains('open');
+        allItems.forEach(i => i.classList.remove('open'));
+        if (!isOpen) {
+          item.classList.add('open');
+          toggleIcon.textContent = '−';
+        } else {
+          toggleIcon.textContent = '+';
+        }
+      } else {
+        item.classList.remove('open');
+        if (toggleIcon) toggleIcon.textContent = '+';
+      }
+    });
+  }
+</script>
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #e8ecf7; */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+    min-height: 100vh;
+  }
+  .faq-container {
+    max-width: 600px;
+    align-items: center;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .faq-subtitle {
+    cursor: default;
+    box-sizing: border-box;
+    outline: 0 none;
+    padding: 0;
+    margin: 0;
+    text-align: center!important;
+    font-weight: 400;
+    word-break: break-word;
+    margin-bottom: 0;
+    color: rgb(56, 73, 89);
+    min-height: auto;
+    font-family: "Hind Vadodara";
+    line-height: 1.6;
+    border-color: rgb(0, 43, 122);
+    border-style: none;
+    border-width: 0px;
+    border-radius: 0px;
+    letter-spacing: 0px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .faq-item {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  .faq-question {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    border-left: 10px solid #6c757d;
+  }
+  .faq-question:hover {
+    background-color: #f9f9f9;
+  }
+  .faq-icon {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px;
+    margin-right: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .faq-answer {
+    padding: 20px;
+    background-color: #f7f7f7;
+    display: none;
+  }
+  .faq-item.open .faq-answer {
+    display: block;
+    color:grey;
+  }
+  .faq-toggle {
+    margin-left: auto;
+    font-size: 20px;
+  }
+  img {
+    max-height: 500px;
+    border-radius: 10px;
+  }
+</style>

@@ -1,0 +1,121 @@
+<section id="videos" class="videos-section">
+  <h2 class="subheadings">Videos</h2>
+  <hr class="dash"/>
+
+  <div class="videos-container">
+    <button class="arrow left" onclick="scrollVideos(-1)">&#10094;</button>
+
+    <div class="videos-scroll-wrapper" id="videosRow">
+      <iframe class="videos-iframe"
+              src="https://www.youtube.com/embed/rCVr8EfuXak"
+              title="YouTube video 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+
+      <iframe class="videos-iframe"
+              src="https://www.youtube.com/embed/rCVr8EfuXak"
+              title="YouTube video 2"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+
+      <iframe class="videos-iframe"
+              src="https://www.youtube.com/embed/rCVr8EfuXak"
+              title="YouTube video 3"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+    </div>
+
+    <button class="arrow right" onclick="scrollVideos(1)">&#10095;</button>
+  </div>
+  
+  <a href="{{ url_for('home.homepage') }}">Back to Home</a>
+
+</section>
+
+<script>
+  function scrollVideos(direction) {
+    const row = document.getElementById("videosRow");
+    const scrollAmount = 500;
+    row.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+<style>
+  .videos-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border: 2px solid #eee;
+  }
+
+  .videos-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .videos-scroll-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .videos-iframe {
+    width: 480px;
+    height: 270px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .videos-iframe:hover {
+    transform: scale(1.03);
+  }
+
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .videos-iframe {
+      width: 90%;
+      height: auto;
+    }
+  }
+</style>

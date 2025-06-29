@@ -1,0 +1,220 @@
+<section class="testimonials-section" id="testimonials">
+  <h2 class="subheadings">Testimonials</h2>
+  <hr class="dash" />
+  <div class="carousel-wrapper">
+    <button class="arrow left-arrow" onclick="scrollTestimonials(-1)">&#10094;</button>
+
+    <div class="testimonials-carousel" id="testimonialCarousel">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <p>Manish Saraogi & Associates has been instrumental in streamlining our tax filing and financial planning. Their knowledge of Indian compliance standards is unmatched.</p>
+        <div class="testimonial-footer">
+          <strong>Aarav Mehta, CFO</strong><br />
+          PrismTech Private Limited, Bengaluru
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <p>We’ve been working with them since 2015. Their proactive advisory and audit support helped us during our expansion into Tier-2 markets.</p>
+        <div class="testimonial-footer">
+          <strong>Sunita Rao, Director - Finance</strong><br />
+          Aryan Retail Solutions, Hyderabad
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="stars" aria-label="4 and a half star rating">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star half-star">&#9733;</span>
+        </div>
+        <p>The firm’s support with GST transition and corporate compliance has been exceptional. We highly recommend them for MSMEs.</p>
+        <div class="testimonial-footer">
+          <strong>Karan Patel, MD</strong><br />
+          Vedanta AgroTech, Pune
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <p>Accurate, dependable, and always available. Their consultancy helped us save significantly through strategic tax planning.</p>
+        <div class="testimonial-footer">
+          <strong>Divya Nair, Partner</strong><br />
+          Nair & Co. Interiors, Kochi
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-card">
+        <div class="stars" aria-label="4 and a half star rating">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star half-star">&#9733;</span>
+        </div>
+        <p>We’ve experienced a smooth partnership thanks to their responsive service and reliable compliance reporting under Indian tax laws.</p>
+        <div class="testimonial-footer">
+          <strong>Rohit Sinha, CEO</strong><br />
+          LogiZen India Pvt Ltd, Mumbai
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="testimonial-card">
+        <div class="stars" aria-label="5 star rating">★★★★★</div>
+        <p>Our go-to CA firm for audits and regulatory filings. They’ve never let us down in over 7 years of partnership.</p>
+        <div class="testimonial-footer">
+          <strong>Pallavi Sharma, Founder</strong><br />
+          ThinkSpark EdTech, New Delhi
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow right-arrow" onclick="scrollTestimonials(1)">&#10095;</button>
+  </div>
+</section>
+
+
+<script>
+  function scrollTestimonials(direction) {
+    const container = document.getElementById("testimonialCarousel");
+    const card = container.querySelector(".testimonial-card");
+    const cardWidth = card.offsetWidth;
+    container.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+  }
+</script>
+
+<style>
+  .testimonials-section {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .subheadings {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .dash {
+    width: 60px;
+    margin: 0 auto 40px auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .testimonials-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonial-card {
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    background: white;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+  }
+
+  .stars {
+    color: #fbc02d;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    user-select: none;
+    display: inline-flex;
+  }
+
+  .stars span.star {
+    position: relative;
+    display: inline-block;
+  }
+
+  .half-star {
+    position: relative;
+    color: #ccc;
+  }
+
+  .half-star::before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #fbc02d;
+    z-index: 1;
+  }
+
+  .testimonial-card p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .testimonial-footer {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  .arrow {
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    position: absolute;
+    top: 45%;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+  }
+
+  .left-arrow {
+    left: 10px;
+  }
+
+  .right-arrow {
+    right: 10px;
+  }
+
+  .testimonials-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-card {
+      flex: 0 0 100%;
+    }
+
+    .left-arrow {
+      left: 5px;
+    }
+
+    .right-arrow {
+      right: 5px;
+    }
+  }
+</style>

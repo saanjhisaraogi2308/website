@@ -1,0 +1,34 @@
+<section id="about" class="aboutus-section">
+  <h2 class="subheadings">About Us</h2>
+  <hr class="dash"/>
+  <img src="{{ url_for('static', filename='images/' + aboutus.image) }}"
+       alt="{{ aboutus.title }}"
+       class="aboutus-image">
+  <p class="aboutus-description">{{ aboutus.description }}</p>
+</section>
+
+<style>
+  .aboutus-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border: 2px solid #eee;
+  }
+  .aboutus-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .aboutus-description {
+    color: rgb(106, 106, 106);
+    font-size: 16px;
+    font-family: "Hind Vadodara", sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+  }
+</style>

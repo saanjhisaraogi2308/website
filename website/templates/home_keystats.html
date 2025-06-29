@@ -1,0 +1,127 @@
+<section id="keystats" class="key-stats-section">
+  <div class="stats-heading">
+    <h2 class="subheadings">Key Stats</h2>
+    <hr class="dash"/>
+  </div>
+  <div class="stats-cards">
+    <div class="stat-card">
+      <h3 class="counter" data-target="25">0</h3>
+      <p>SPECIALISED<br>SERVICES</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="counter" data-target="30">0</h3>
+      <p>INDUSTRIES<br>SERVED</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="counter" data-target="35">0</h3>
+      <p>YEARS OF<br>EXPERIENCE</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="counter" data-target="250">0</h3>
+      <p>EXPERTS TEAM<br>GLOBALLY</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="counter" data-target="250">0</h3>
+      <p>HAPPY CLIENTS</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText.replace('+', '');
+
+        let increment;
+        if (target > 100) {
+          increment = Math.ceil(target / 50);
+        } else {
+          increment = Math.ceil(target / 200);
+        }
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 15);
+        } else {
+          counter.innerText = target + '+';
+        }
+      };
+      updateCount();
+    });
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.disconnect();
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(document.querySelector('#keystats'));
+</script>
+
+<style>
+  .key-stats-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border: 2px solid #eee;
+}
+
+.stats-heading {
+  margin-bottom: 40px;
+}
+
+.subheadings {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.dash {
+  width: 50px;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stat-card {
+  border: 1px solid grey;
+  padding: 30px 20px;
+  min-width: 150px;
+  max-width: 180px;
+  background-color: white;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: black;
+  font-family: "Hind Vadodara", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.stat-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: black;
+  text-transform: uppercase;
+  font-family: "Hind Vadodara", sans-serif;
+}
+</style>

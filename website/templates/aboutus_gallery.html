@@ -1,0 +1,109 @@
+<section id="gallery" class="gallery-section">
+  <h2 class="subheadings">Gallery</h2>
+  <hr class="dash"/>
+
+  <div class="gallery-container">
+    <button class="arrow left" onclick="scrollGallery(-1)">&#10094;</button>
+
+    <div class="gallery-row" id="galleryRow">
+      <img src="static/images/Manish Saraogi.jpg" class="gallery-image" alt="Manish Saraogi">
+      <img src="static/images/Manish Saraogi 2.jpg" class="gallery-image" alt="Manish Saraogi">
+      <img src="static/images/Manish Saraogi 3.jpg" class="gallery-image" alt="Manish Saraogi">
+      <img src="static/images/Manish Saraogi Diwali.jpg" class="gallery-image" alt="Diwali Celebration">
+    </div>
+
+    <button class="arrow right" onclick="scrollGallery(1)">&#10095;</button>
+  </div>
+</section>
+
+
+<script>
+  function scrollGallery(direction) {
+    const row = document.getElementById("galleryRow");
+    const scrollAmount = 320;
+    row.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+
+<style>
+  .gallery-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border: 2px solid #eee;
+  }
+
+  .gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+  }
+
+  .gallery-image {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .gallery-image:hover {
+    transform: scale(1.03);
+  }
+
+  .arrow {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+  .gallery-row::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .gallery-row::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+
+  .gallery-row::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+  }
+</style>
+
+

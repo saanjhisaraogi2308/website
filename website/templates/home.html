@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+      {% include 'header.html' %}
+      <meta charset="UTF-8">
+      <title>Manish Saraogi & Associates</title>
+  </head>
+
+  <body>
+    {% block content %}
+
+    {% include 'home_intro.html' %}
+    {% include 'home_visionmission.html' %}
+    {% include 'home_keystats.html' %}
+    {% include 'home_services.html' %}
+    {% include 'home_aboutus.html' %}
+    {% include 'home_whyus.html' %}
+    {% include 'home_testimonials.html' %}
+    {% include 'home_ourclients.html' %}
+    {% include 'home_industry.html' %}
+    {% include 'home_affiliations.html' %}
+    {% include 'home_techstack.html' %}
+        
+    {% include 'home_contactus.html' %}
+    {% include 'home_bottom_form.html' %}
+
+    {% include 'chatbot.html' %} 
+
+    {% endblock %} 
+    
+      <footer>
+    {% include 'footer.html' %}
+    {% include 'floating_buttons.html' %}
+    {% include 'change_language.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </footer>
+  
+  </body>
+
+
+
+</html>
+

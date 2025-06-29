@@ -1,0 +1,70 @@
+<section id="services" class="services-section">
+  <h2 class="subheadings">Services We Offer</h2>
+  <hr class="dash"/>
+  <div class="card-container">
+    {% for service in services %}
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/' + service.image) }}"
+            alt="{{ service.title }}"
+            class="card-image">
+        <h3>{{ service.title }}</h3>
+        <p class="card-description">{{ service.description }}</p>
+        <button class="cta-button">Enquire Now</button>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .services-section {
+    text-align: center;
+    padding: 20px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid #eee;
+  }
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 180px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  .card:hover{
+      box-shadow: 0 0 17px rgba(23, 84, 116, .18);
+      transform: scale(1.05);
+  }
+
+  .card-image {
+
+      color: rgb(51, 51, 51);
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+      max-height: 250px;
+      border-color: rgb(51, 51, 51);
+      border-style: none;
+      border-width: 0px;
+      border-radius: 15px 15px 15px 15px;
+      background-color: rgba(0, 0, 0, 0);
+  }
+
+  .card-description{
+      color: rgb(106, 106, 106);
+      min-height: auto;
+      font-family: "Hind Vadodara";
+      line-height: 1.4;
+      border-color: rgb(51, 51, 51);
+      border-style: none;
+      border-width: 0px;
+      border-radius: 0px;
+      letter-spacing: 0px;
+      background-color: rgba(0, 0, 0, 0);
+  }
+</style>
