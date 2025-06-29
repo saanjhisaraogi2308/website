@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Our Team</title>
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -12,11 +12,16 @@
     <div class="team-container">
 
       <!-- CA Manish Saraogi -->
-      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
+      <div class="flip-card" 
+           onmouseenter="startFlip(this)" 
+           onmouseleave="startUnflip(this)">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <h3>CA Manish Saraogi</h3>
-            <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" class="linkedin-link" onclick="event.stopPropagation()">
+            <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" 
+               target="_blank" 
+               class="linkedin-link" 
+               onclick="cancelFlip(this.closest('.flip-card'))">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
@@ -28,11 +33,16 @@
       </div>
 
       <!-- Krish Saraogi -->
-      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
+      <div class="flip-card" 
+           onmouseenter="startFlip(this)" 
+           onmouseleave="startUnflip(this)">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <h3>Krish Saraogi</h3>
-            <a href="https://www.linkedin.com/in/krish-saraogi-9b434b188/" class="linkedin-link" onclick="event.stopPropagation()">
+            <a href="https://www.linkedin.com/in/krish-saraogi-9b434b188/" 
+               target="_blank" 
+               class="linkedin-link" 
+               onclick="cancelFlip(this.closest('.flip-card'))">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
@@ -42,13 +52,17 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Megha Agarwal -->
-      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
+      <div class="flip-card" 
+           onmouseenter="startFlip(this)" 
+           onmouseleave="startUnflip(this)">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <h3>CA Megha Agarwal</h3>
-            <a href="#" class="linkedin-link" onclick="event.stopPropagation()">
+            <a href="#" 
+               class="linkedin-link" 
+               onclick="cancelFlip(this.closest('.flip-card'))">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
@@ -60,11 +74,15 @@
       </div>
 
       <!-- Priya Mehta -->
-      <div class="flip-card" onmouseenter="startFlip(this)" onmouseleave="cancelFlip(this)">
+      <div class="flip-card" 
+           onmouseenter="startFlip(this)" 
+           onmouseleave="startUnflip(this)">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <h3>CA Priya Mehta</h3>
-            <a href="#" class="linkedin-link" onclick="event.stopPropagation()">
+            <a href="#" 
+               class="linkedin-link" 
+               onclick="cancelFlip(this.closest('.flip-card'))">
               <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
           </div>
@@ -78,22 +96,32 @@
     </div>
   </section>
 </body>
-</html>
 
 <script>
-  // Delayed flip logic
   const flipTimers = new WeakMap();
+  const unflipTimers = new WeakMap();
 
   function startFlip(card) {
+    const inner = card.querySelector('.flip-card-inner');
+    if (inner.classList.contains('flipped')) return;
+
     const timer = setTimeout(() => {
-      card.classList.add('flipped');
-    }, 600); // 600ms delay
+      inner.classList.add('flipped');
+    }, 600); // Delay before flipping
     flipTimers.set(card, timer);
+  }
+
+  function startUnflip(card) {
+    const inner = card.querySelector('.flip-card-inner');
+    const timer = setTimeout(() => {
+      inner.classList.remove('flipped');
+    }, 600); // Delay before flipping back
+    unflipTimers.set(card, timer);
   }
 
   function cancelFlip(card) {
     clearTimeout(flipTimers.get(card));
-    card.classList.remove('flipped');
+    clearTimeout(unflipTimers.get(card));
   }
 </script>
 
@@ -133,7 +161,7 @@
     transition: transform 0.8s ease;
   }
 
-  .flip-card.flipped .flip-card-inner {
+  .flip-card-inner.flipped {
     transform: rotateY(180deg);
   }
 
@@ -148,7 +176,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     padding: 20px;
     box-sizing: border-box;
   }
@@ -212,3 +240,4 @@
     }
   }
 </style>
+</html>
