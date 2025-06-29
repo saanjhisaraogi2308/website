@@ -1,107 +1,100 @@
-<html>
-  <body>
-    <section class="team-section section">
-      <h2>Our Team</h2>
-      <div class="team-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Team</title>
+</head>
+<body>
+  <section id="ourteam" class="team-section section">
+    <h2>Our Team</h2>
+    <div class="team-container">
 
-        <!-- Manish Saraogi -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>CA Manish Saraogi</h3>
-              <p>Founder & Principal Partner</p>
-              <small>24+ years of experience in tax, audit & advisory.</small>
-            </div>
-            <div class="flip-card-back">
-              <h3>Manish Saraogi</h3>
-              <p>Specializes in Direct Tax & Audit</p>
-              <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" class="linkedin-link">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-              </a>
-            </div>
+      <!-- Manish Saraogi -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <!-- FRONT: Blue gradient with name & LinkedIn -->
+          <div class="flip-card-front">
+            <h3>CA Manish Saraogi</h3>
+            <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" class="linkedin-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+          <!-- BACK: White with title & details -->
+          <div class="flip-card-back">
+            <h4>Founder & Principal Partner</h4>
+            <p>24+ years of experience in tax, audit & advisory.</p>
           </div>
         </div>
-
-        <!-- Megha Agarwal -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>CA Megha Agarwal</h3>
-              <p>Partner</p>
-              <small>Expert in GST, ROC Compliance & Statutory Audit.</small>
-            </div>
-            <div class="flip-card-back">
-              <h3>Megha Agarwal</h3>
-              <p>Leads GST & Company Law Practice</p>
-              <a href="#" target="_blank" class="linkedin-link">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Krish Saraogi -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>Krish Saraogi</h3>
-              <p>Strategy & Digital Transformation</p>
-              <small>Leads innovation, automation & tech-driven finance solutions.</small>
-            </div>
-            <div class="flip-card-back">
-              <h3>Krish Saraogi</h3>
-              <p>Digital Systems & Client Experience</p>
-              <a href="#" target="_blank" class="linkedin-link">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Priya Mehta -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>CA Priya Mehta</h3>
-              <p>Senior Consultant</p>
-              <small>Specialist in Corporate Advisory & Tax Planning.</small>
-            </div>
-            <div class="flip-card-back">
-              <h3>Priya Mehta</h3>
-              <p>Corporate Finance & International Tax</p>
-              <a href="#" target="_blank" class="linkedin-link">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section>
-  </body>
+
+      <!-- Megha Agarwal -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>CA Megha Agarwal</h3>
+            <a href="#" class="linkedin-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+          <div class="flip-card-back">
+            <h4>Partner</h4>
+            <p>Expert in GST, ROC Compliance & Statutory Audit.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Krish Saraogi -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Krish Saraogi</h3>
+            <a href="#" class="linkedin-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+          <div class="flip-card-back">
+            <h4>Strategy & Digital Transformation</h4>
+            <p>Leads innovation, automation & tech-driven finance solutions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Priya Mehta -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>CA Priya Mehta</h3>
+            <a href="#" class="linkedin-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+          <div class="flip-card-back">
+            <h4>Senior Consultant</h4>
+            <p>Specialist in Corporate Advisory & Tax Planning.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
 </html>
 
 <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f7fa;
-    color: #111;
-  }
-
-  .section {
+  .team-section {
     padding: 60px 20px;
     text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
   }
 
   .team-section h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 40px;
-    font-weight: 700;
-    color: #222;
+    color: #111;
   }
 
   .team-container {
@@ -112,7 +105,6 @@
   }
 
   .flip-card {
-    background-color: transparent;
     width: 280px;
     height: 360px;
     perspective: 1000px;
@@ -122,9 +114,8 @@
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 0.8s ease-in-out;
     transform-style: preserve-3d;
+    transition: transform 0.8s ease;
   }
 
   .flip-card:hover .flip-card-inner {
@@ -137,73 +128,66 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
   }
 
+  /* FRONT: Blue gradient */
   .flip-card-front {
-    background-color: #ffffff;
-  }
-
-  .flip-card-back {
     background: linear-gradient(135deg, #002147, #003366);
-    color: #fff;
-    transform: rotateY(180deg);
+    color: white;
   }
-
-  .flip-card-front h3,
-  .flip-card-back h3 {
-    font-size: 1.3rem;
+  .flip-card-front h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
     font-weight: 600;
+  }
+
+  /* BACK: White */
+  .flip-card-back {
+    background: #fff;
+    color: #111;
+    transform: rotateY(180deg);
+    text-align: center;
+  }
+  .flip-card-back h4 {
     margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
-
-  .flip-card-front p,
   .flip-card-back p {
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 5px 0;
-  }
-
-  .flip-card-front small {
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .linkedin-link {
-    margin-top: 12px;
-    font-size: 0.9rem;
+    margin-top: 10px;
     color: #fff;
     text-decoration: none;
+    font-size: 1rem;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 6px 12px;
-    border-radius: 5px;
+    gap: 8px;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 12px;
+    border-radius: 6px;
     transition: background 0.3s;
   }
-
   .linkedin-link:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255,255,255,0.35);
   }
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     .team-container {
       flex-direction: column;
       align-items: center;
     }
-
-    .flip-card {
-      width: 90%;
-      height: 340px;
-    }
+    .flip-card { width: 90%; height: 320px; }
   }
 </style>

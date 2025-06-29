@@ -38,9 +38,11 @@
     <!-- <button class="arrow right" onclick="scrollVideos(1)">&#10095;</button> -->
   </div>
 
-  <div class="back-link-wrapper">
-    <a href="{{ url_for('home.homepage') }}" class="back-home-link">Back to Home</a>
+  <br>
+  <div class="back-home">
+    <a href="{{ url_for('home.homepage') }}" class="back-link">← Back to Home</a>
   </div>
+
 </section>
 
 <script>
@@ -144,6 +146,20 @@
   .back-home-link:hover {
     color: #005fa3;
     text-decoration: underline;
+  }
+
+   .back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .back-link:hover {
+    background-color: #004aad;
   }
 
   @media screen and (max-width: 768px) {
