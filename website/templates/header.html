@@ -3,20 +3,17 @@
     <div class="contact-left">
       <div class="social-icons">
         <a href="tel:9832036953"><i class="fa fa-phone"></i></a>
-      <a href="mailto:man_saraogi@yahoo.co.in" class="contact-link"><i class="fa fa-envelope"></i></a>
-        <a href="https://www.facebook.com/manish.saraogi.731" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://instagram.com/manish.saraogi.731" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/9832036953" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://maps.app.goo.gl/x4rbHkuqWezYxMm78" target="_blank" rel="noopener" class="contact-link">
-          <i class="fa fa-location-dot"></i> 
-        </a>
+        <a href="mailto:man_saraogi@yahoo.co.in"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.facebook.com/manish.saraogi.731" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com/manish.saraogi.731" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/9832036953" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://maps.app.goo.gl/x4rbHkuqWezYxMm78" target="_blank"><i class="fa fa-location-dot"></i></a>
       </div>
     </div>
-
     <div class="contact-right">
       <div class="user-profile-dropdown">
-        <!-- <i class="fa fa-user"></i> Hello -->
+        <!-- Optional User Login/Dropdown -->
       </div>
     </div>
   </div>
@@ -31,7 +28,7 @@
         <a href="/#home">Home</a>
         <ul class="dropdown-menu">
           <li><a href="/#visionmission">Vision and Mission</a></li>
-          <li><a href="/#keystats">KeyStats</a></li>
+          <li><a href="/#keystats">Key Stats</a></li>
           <li><a href="/#services">Services</a></li>
           <li><a href="/#about">About Us</a></li>
           <li><a href="/#why">Why Us</a></li>
@@ -43,19 +40,21 @@
           <li><a href="/#contactus">Contact Us</a></li>
         </ul>
       </li>
-      <li class="dropdown"> 
+
+      <li class="dropdown">
         <a href="/aboutus">About Us</a>
         <ul class="dropdown-menu">
           <li><a href="/aboutus#ourfounder">Our Founder</a></li>
           <li><a href="/aboutus#ourteam">Our Team</a></li>
-          <li><a href="/aboutus#awards">Awards and Recognitions</a></li>
+          <li><a href="/aboutus#awards">Awards & Recognitions</a></li>
           <li><a href="/aboutus#milestones">Milestones</a></li>
           <li><a href="/aboutus#certifications">Certifications</a></li>
           <li><a href="/aboutus#gallery">Gallery</a></li>
           <li><a href="/aboutus#videos">Videos</a></li>
         </ul>
       </li>
-      <li class="dropdown"> 
+
+      <li class="dropdown">
         <a href="#sitesandnews">Sites and News</a>
         <ul class="dropdown-menu">
           <li><a href="/usefulsites">Useful Sites</a></li>
@@ -63,14 +62,14 @@
           <li><a href="/bulletin">Bulletin</a></li>
         </ul>
       </li>
-      
+
       <li class="dropdown">
-  <a href="/joinus">Join Us</a>
-  <ul class="dropdown-menu">
-    <li><a href="/joinus">Join Us</a></li>
-    <li><a href="/#contactus">Contact Us</a></li>
-  </ul>
-</li>
+        <a href="/joinus">Join Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="/joinus">Join Us</a></li>
+          <li><a href="/#contactus">Contact Us</a></li>
+        </ul>
+      </li>
 
       <li><a href="/faq">FAQ</a></li>
     </ul>
@@ -78,16 +77,16 @@
 </header>
 
 <style>
- .main-header {
-  max-width: 1200px;        
-  margin: 0 auto;           
-  background-color: #dcdcdc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px 40px;        
-  color: #000;
-  margin-bottom: 40px; /* <-- This adds space after the header */
-}
+  .main-header {
+    width: 100%;
+    background-color: #dcdcdc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    color: #000;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
 
   .top-contact-bar {
     display: flex;
@@ -106,20 +105,16 @@
     flex-wrap: wrap;
   }
 
-  .top-contact-bar a,
-  .user-profile-dropdown {
+  .top-contact-bar a {
     color: #000;
     text-decoration: none;
-    margin-left: 0; /* updated */
-    margin-right: 10px; /* added */
+    margin-right: 10px;
     display: flex;
     align-items: center;
-    white-space: nowrap;
   }
 
   .top-contact-bar i {
     margin-right: 5px;
-    color: #000;
   }
 
   .social-icons {
@@ -129,23 +124,18 @@
     flex-wrap: wrap;
   }
 
-  .social-icons a {
-    color: #000;
-  }
-
   .social-icons a:hover {
     font-size: larger;
-  } 
+  }
 
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 10px;
-    max-width: 1200px; /* optional for alignment */
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .logo {
@@ -155,19 +145,15 @@
     font-weight: 700;
     font-size: 20px;
     color: #000;
+    flex: 1;
+    min-width: 250px;
   }
+
   .avatar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    font-size: 20px;
-    color: #000;
-    background-color: white; 
-    font-weight: 700;
-    font-size: 18px;
+    background-color: white;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,10 +162,17 @@
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
-    padding-left: 0;
-    padding-right: 20px; 
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 18px;
     margin: 0;
+    padding: 0;
+    flex: 2;
+    min-width: 300px;
+  }
+
+  .nav-links li {
+    position: relative;
   }
 
   .nav-links li a {
@@ -187,13 +180,17 @@
     color: #000;
     font-weight: 600;
     padding: 6px 0;
+    white-space: nowrap;
   }
+
   .nav-links li a:hover {
     font-size: larger;
   }
+
   .dropdown-menu {
     display: none;
     position: absolute;
+    top: 100%;
     background-color: #6c757d;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     list-style: none;
@@ -212,6 +209,7 @@
   }
 
   .dropdown-menu li a:hover {
+    background-color: #5a6268;
     font-size: larger;
   }
 

@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    {% include 'header.html' %}
-    <meta charset="UTF-8">
-    <title>Privacy Policy</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  </head>
+<head>
+  {% include 'header.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer</title>
 
-  <body>
-    <div class="container">
-      <h1>Disclaimer</h1>
-      <p>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Disclaimer</h1>
+    <p>
       The information provided on this website is for general informational purposes only. While we strive to ensure that the content is accurate and up to date, <strong>Manish Saraogi & Associates</strong> makes no guarantees or representations of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information contained herein.
     </p>
 
@@ -31,15 +34,67 @@
       By using this website, you agree to the terms of this disclaimer and the terms and conditions provided elsewhere on the site.
     </p>
 
-      <a href="{{ url_for('home.homepage') }}">Back to Home</a>
-    </div>
-  </body>
+    <a href="{{ url_for('home.homepage') }}" class="back-link">← Back to Home</a>
+  </div>
 
-  <footer>
-    {% include 'footer.html' %}
-    {% include 'change_language.html' %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </footer>
+  {% include 'footer.html' %}
+  {% include 'change_language.html' %}
+</body>
+
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #222;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #002147;
+    margin-bottom: 20px;
+  }
+
+  p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: #004aad;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #002147;
+    color: #fff !important;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-link:hover {
+    background-color: #004aad;
+  }
+</style>
 
 </html>

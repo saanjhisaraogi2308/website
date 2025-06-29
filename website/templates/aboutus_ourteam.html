@@ -1,93 +1,120 @@
-<!DOCTYPE html>
 <html>
-  <header>
-    <title>Our Team - Manish Saraogi & Associates</title>
-  </header>
-
   <body>
-    <section id="ourteam" class="team-section section">
-      <h2>Meet our core team at Manish Saraogi & Associates</h2>
+    <section class="team-section section">
+      <h2>Our Team</h2>
       <div class="team-container">
 
+        <!-- Manish Saraogi -->
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <!-- <img src="/mnt/data/92c4500b-cc8a-467e-86ba-f7a531cf591f.png" alt="Pavan Sharma"> -->
-              <h3>Pavan Sharma</h3>
-              <p>Start-Up Advisory, Transaction Structuring & Registered Valuer</p>
-              <small>Guides startups and businesses on valuation and legal structuring.</small>
+              <h3>CA Manish Saraogi</h3>
+              <p>Founder & Principal Partner</p>
+              <small>24+ years of experience in tax, audit & advisory.</small>
             </div>
             <div class="flip-card-back">
-              <p>LinkedIn: linkedin.com/in/pavansharma</p>
+              <h3>Manish Saraogi</h3>
+              <p>Specializes in Direct Tax & Audit</p>
+              <a href="https://www.linkedin.com/in/ca-manish-saraogi-003b3b214/" target="_blank" class="linkedin-link">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
             </div>
           </div>
         </div>
 
+        <!-- Megha Agarwal -->
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <!-- <img src="/mnt/data/92c4500b-cc8a-467e-86ba-f7a531cf591f.png" alt="Vighneshwar Bhat"> -->
-              <h3>Vighneshwar Bhat</h3>
-              <p>Company Law, Secretarial Matters, Trademarks, FEMA, IBC</p>
-              <small>Specialist in corporate legal compliance and regulatory affairs.</small>
+              <h3>CA Megha Agarwal</h3>
+              <p>Partner</p>
+              <small>Expert in GST, ROC Compliance & Statutory Audit.</small>
             </div>
             <div class="flip-card-back">
-              <p>LinkedIn: linkedin.com/in/vighneshwar</p>
+              <h3>Megha Agarwal</h3>
+              <p>Leads GST & Company Law Practice</p>
+              <a href="#" target="_blank" class="linkedin-link">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
             </div>
           </div>
         </div>
 
+        <!-- Krish Saraogi -->
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <!-- <img src="/mnt/data/92c4500b-cc8a-467e-86ba-f7a531cf591f.png" alt="Ankush Shetty"> -->
-              <h3>Ankush Shetty</h3>
-              <p>Audit and Assurance, Tax Advisory - Income Tax & GST</p>
-              <small>Handles statutory audits and complex tax advisory matters.</small>
+              <h3>Krish Saraogi</h3>
+              <p>Strategy & Digital Transformation</p>
+              <small>Leads innovation, automation & tech-driven finance solutions.</small>
             </div>
             <div class="flip-card-back">
-              <p>LinkedIn: linkedin.com/in/ankushshetty</p>
+              <h3>Krish Saraogi</h3>
+              <p>Digital Systems & Client Experience</p>
+              <a href="#" target="_blank" class="linkedin-link">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
             </div>
           </div>
         </div>
+
+        <!-- Priya Mehta -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>CA Priya Mehta</h3>
+              <p>Senior Consultant</p>
+              <small>Specialist in Corporate Advisory & Tax Planning.</small>
+            </div>
+            <div class="flip-card-back">
+              <h3>Priya Mehta</h3>
+              <p>Corporate Finance & International Tax</p>
+              <a href="#" target="_blank" class="linkedin-link">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
   </body>
-
-  <footer>
-    <p style="text-align:center; padding: 20px;">© 2025 Manish Saraogi & Associates</p>
-  </footer>
 </html>
 
 <style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: #f5f7fa;
     color: #111;
   }
 
   .section {
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
   }
 
   .team-section h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #222;
   }
 
   .team-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
   }
 
   .flip-card {
     background-color: transparent;
-    width: 210px;
-    height: 300px;
+    width: 280px;
+    height: 360px;
     perspective: 1000px;
   }
 
@@ -96,7 +123,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 0.8s ease-in-out;
     transform-style: preserve-3d;
   }
 
@@ -110,44 +137,73 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 25px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
   }
 
   .flip-card-front {
     background-color: #ffffff;
-    color: #111;
   }
 
   .flip-card-back {
-    background-color: #002147;
-    color: white;
+    background: linear-gradient(135deg, #002147, #003366);
+    color: #fff;
     transform: rotateY(180deg);
-    padding: 20px;
   }
 
-  .flip-card-front h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 10px 0 5px;
+  .flip-card-front h3,
+  .flip-card-back h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
 
-  .flip-card-front p {
-    font-size: 13px;
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 0.95rem;
+    font-weight: 500;
     margin: 5px 0;
   }
 
   .flip-card-front small {
-    font-size: 11px;
-    color: #555;
-    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 8px;
+  }
+
+  .linkedin-link {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+
+  .linkedin-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  @media screen and (max-width: 768px) {
+    .team-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .flip-card {
+      width: 90%;
+      height: 340px;
+    }
   }
 </style>

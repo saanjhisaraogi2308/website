@@ -126,7 +126,7 @@
   </div>
 
  <div style="text-align: center;">
-  <a href="{{ url_for('home.homepage') }}">Back to Home</a>
+  <a href="{{ url_for('home.homepage') }}" class="back-link">← Back to Home</a>
 </div>
 
 {% include 'chatbot.html' %} 
@@ -246,6 +246,21 @@
     margin-left: auto;
     font-size: 20px;
   }
+  .back-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #002147;
+  color: #fff !important;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: #004aad;
+}
   img {
     max-height: 500px;
     border-radius: 10px;

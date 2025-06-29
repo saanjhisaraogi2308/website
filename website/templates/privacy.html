@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    {% include 'header.html' %}
-    <meta charset="UTF-8">
-    <title>Privacy Policy</title>
-  </head>
+<head>
+  {% include 'header.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
 
-  <body>
-    <div class="container">
-      <h1>Privacy Policy</h1>
-      <p>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p>
       At <strong>Manish Saraogi & Associates</strong>, we value your privacy and are committed to protecting any personal or financial information you share with us. This policy outlines how we collect, use, and safeguard your data in accordance with applicable laws and professional ethics.
     </p>
 
@@ -43,77 +48,83 @@
 
     <h4>Contact Us</h4>
     <p>
-      If you have any questions or concerns regarding our privacy practices, please contact us at <a href="tel:9832036953">9832036953</a> or email us at <a href="mailto:man_saraogi@yahoo.co.in">man_saraogi@yahoo.co.in</a>.
+      If you have any questions or concerns regarding our privacy practices, please contact us at
+      <a href="tel:9832036953">9832036953</a> or email us at
+      <a href="mailto:man_saraogi@yahoo.co.in">man_saraogi@yahoo.co.in</a>.
     </p>
 
-      <!-- Add your detailed privacy policy here -->
+    <a href="{{ url_for('home.homepage') }}" class="back-link">← Back to Home</a>
+  </div>
 
-      <a href="{{ url_for('home.homepage') }}">Back to Home</a>
-      
-    </div>
-
-  </body>
-
-  <footer>
-    {% include 'footer.html' %}
-    {% include 'change_language.html' %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </footer>
-
-</html>
+  {% include 'footer.html' %}
+  {% include 'change_language.html' %}
+</body>
 
 <style>
-  .aboutus-image{
-    color: rgb(51, 51, 51);
-    font-size: 16px;
-    font-family: Hind Vadodara !important;
-    font-weight: 400 !important;
-    text-align: center;
-    line-height: 1.42857143;
-    word-break: break-word;
-    box-sizing: border-box;
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
-    border: 0;
-    vertical-align: middle;
-    animation: fadeInImg cubic-bezier(.23,1,.32,1) 1;
-    position: relative;
-    animation-fill-mode: forwards;
-    animation-duration: .7s;
-    animation-delay: .1s;
-    text-decoration: inherit;
-    min-width: 1px;
-    min-height: 1px;
-    height: auto;
-    max-height: 100%;
-    max-width: 100%;
-    width: 100%;
-    border-radius: 15px 15px 15px 15px;
-    opacity: 1;
-}
-
-.aboutus-description{
-
-    font-weight: 400 !important;
-    cursor: default;
-    box-sizing: border-box;
-    outline: 0 none;
     padding: 0;
-    margin: 0;
-    text-align: center!important;
-    margin-bottom: 15px;
-    word-break: break-word;
-    font-size: 18px;
-    color: rgb(106, 106, 106);
-    min-height: auto;
-    font-family: "Hind Vadodara";
-    line-height: 1.6;
-    border-color: rgb(51, 51, 51);
-    border-style: none;
-    border-width: 0px;
-    border-radius: 0px;
-    letter-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
-}
+    color: #222;
+  }
 
+  .container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #002147;
+    margin-bottom: 20px;
+  }
+
+  h4 {
+    margin-top: 25px;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  p, ul {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  a {
+    color: #004aad;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #002147;
+    color: #fff !important;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-link:hover {
+    background-color: #004aad;
+  }
 </style>
+
+</html>

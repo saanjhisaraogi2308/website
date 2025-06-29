@@ -62,116 +62,132 @@
   </div>
 </section>
 
-
 <style>
-    body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f8f9fa;
-  margin: 0;
-  padding: 0;
-}
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
 
-.milestones-section {
-  padding: 60px 20px;
-  background-color: #ffffff;
-  overflow-x: auto;
-  white-space: nowrap;
-}
+  .milestones-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
-.timeline-horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  padding: 0 40px;
-  position: relative;
-}
+  .subheadings {
+    text-align: center;
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
 
-.curve-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background: repeating-linear-gradient(
-    to right,
-    #bbb,
-    #bbb 10px,
-    transparent 10px,
-    transparent 20px
-  );
-  z-index: 0;
-}
+  .dash {
+    border: none;
+    border-top: 2px solid #ccc;
+    width: 60px;
+    margin: 0 auto 40px auto;
+  }
 
-.milestone {
-  position: relative;
-  width: 180px;
-  margin: 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1;
-}
-
-.milestone:nth-child(even) {
-  transform: translateY(50px);
-}
-
-.milestone:nth-child(odd) {
-  transform: translateY(-50px);
-}
-
-.milestone .circle {
-  width: 24px;
-  height: 24px;
-  background-color: #333; /* dark grey/black circle */
-  border: 4px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-}
-
-.milestone .content {
-  background-color: #f0f0f0; /* light grey */
-  padding: 15px 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  min-width: 180px;
-  max-width: 220px;
-  color: #000;
-  box-sizing: border-box;
-}
-
-.milestone .date {
-  font-size: 0.85em;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.milestone .title {
-  font-size: 1.05em;
-  color: #000;
-  font-weight: 600;
-}
-
-@media screen and (max-width: 768px) {
   .timeline-horizontal {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 60px;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 40px;
+    position: relative;
   }
 
   .curve-line {
-    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: repeating-linear-gradient(
+      to right,
+      #bbb,
+      #bbb 10px,
+      transparent 10px,
+      transparent 20px
+    );
+    z-index: 0;
   }
 
   .milestone {
-    transform: none !important;
-    width: 100%;
-    align-items: flex-start;
+    position: relative;
+    margin: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
   }
 
-}
+  .milestone:nth-child(even) {
+    transform: translateY(50px);
+  }
+
+  .milestone:nth-child(odd) {
+    transform: translateY(-50px);
+  }
+
+  .milestone .circle {
+    width: 24px;
+    height: 24px;
+    background-color: #333;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+
+  .milestone .content {
+    background-color: #f0f0f0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    color: #000;
+    box-sizing: border-box;
+    display: inline-block;
+    max-width: none;
+    white-space: normal;
+  }
+
+  .milestone .date {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .milestone .title {
+    font-size: 1.05em;
+    color: #000;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 768px) {
+    .timeline-horizontal {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 60px;
+      padding: 20px;
+    }
+
+    .curve-line {
+      display: none;
+    }
+
+    .milestone {
+      transform: none !important;
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    .milestone .content {
+      width: 100%;
+      display: block;
+    }
+  }
 </style>
